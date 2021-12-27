@@ -1,0 +1,178 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: $font-size;
+	font-weight: 400;
+	font-family: $font-family;
+	&.lock {
+		overflow: hidden;
+	}
+}
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+// ===============================================================================================================
+
+.wrapper {
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.container {
+	width: 100%;
+	max-width: $container-width + $container-padding * 2;
+	padding: 0 $container-padding;
+	margin: 0 auto;
+}
+
+body.lock {
+	overflow: hidden;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 13px 42px;
+	border-radius: 8px;
+	background: $red;
+
+	font-family: Montserrat;
+	font-weight: 600;
+	line-height: 22 / 16 * 100%;
+	color: white;
+	transition: 300ms;
+	@media (any-hover: hover) {
+		&:hover {
+			transform: scale(1.05);
+			background: #75110d;
+		}
+		&:active {
+			transform: scale(1.05) translateY(5px);
+		}
+	}
+	@media (any-hover: none) {
+		&:active {
+			transform: translateY(5px);
+		}
+	}
+	&-transparent {
+		background-color: transparent;
+		color: $red;
+		border: 1px solid $red;
+		@media (any-hover: hover) {
+			&:hover {
+				border: 0;
+				background: #ead1d0;
+			}
+		}
+	}
+}
+
+.title {
+	font-family: Oswald;
+	font-size: 46px;
+	font-weight: 700;
+	line-height: 60 / 46 * 100%;
+	letter-spacing: 0.02em;
+}
+.text {
+	line-height: 22 / 16 * 100%;
+}
+
+.round_line {
+	position: relative;
+	&.active {
+		#line {
+			animation: dash 3s forwards;
+		}
+	}
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 0;
+
+		width: 130%;
+	}
+	#line {
+		stroke-dasharray: 1000;
+		stroke-dashoffset: 1000;
+	}
+
+	@keyframes dash {
+		from {
+			stroke-dashoffset: 1000;
+		}
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+}
